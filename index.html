@@ -2,7 +2,12 @@
 <html lang="km" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#2E020A" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
   <title>មង្គលការ | Sakkada & Sovannary Wedding Invitation</title>
 
   <!-- OpenGraph & Social Sharing Meta Tags -->
@@ -98,6 +103,22 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <style>
+    /* Mobile-First Optimizations & Smooth Touch Behavior */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+    }
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+    input, select, textarea {
+      font-size: 16px; /* Prevents auto-zoom on iOS Safari when tapping inputs */
+    }
+
     /* Traditional Cambodian gold metallic gradient and shimmer */
     .gold-gradient-text {
       background: linear-gradient(135deg, #FFE894 0%, #D4AF37 40%, #FFF2B2 60%, #A47E2F 100%);
@@ -109,7 +130,7 @@
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: goldShimmerMove 4s linear infinite;
+      animation: goldShimmerMove 6s linear infinite;
     }
     @keyframes goldShimmerMove {
       0% { background-position: 0% center; }
@@ -126,7 +147,7 @@
         0 0 32px rgba(212, 175, 55, 0.35);
       letter-spacing: 0.03em;
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.7));
-      animation: goldGlowPulse 3.5s ease-in-out infinite;
+      animation: goldGlowPulse 5.5s ease-in-out infinite;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
     }
@@ -248,41 +269,45 @@
     }
     .butterfly-3d {
       position: relative;
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       transform-style: preserve-3d;
-      animation: butterflyFlight 7s ease-in-out infinite alternate;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+      animation: butterflyFlight 16s ease-in-out infinite alternate;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+      will-change: transform;
     }
     .butterfly-rose .butterfly-wing-left,
     .butterfly-rose .butterfly-wing-right {
       background: linear-gradient(135deg, #FFF0F5 0%, #F48FB1 45%, #E91E63 85%, #D4AF37 100%) !important;
-      box-shadow: 0 0 12px rgba(244, 143, 177, 0.7) !important;
+      box-shadow: 0 0 10px rgba(244, 143, 177, 0.5) !important;
     }
     .butterfly-small {
-      transform: scale(0.65);
-      animation: butterflyFlight 5s ease-in-out infinite alternate-reverse;
+      transform: scale(0.6);
+      animation: butterflyFlight 18s ease-in-out infinite alternate-reverse;
     }
     .butterfly-wing {
       position: absolute;
       top: 2px;
-      width: 19px;
-      height: 25px;
+      width: 18px;
+      height: 24px;
       background: linear-gradient(135deg, #FFFDEB 0%, #F9E79F 30%, #D4AF37 75%, #A47E2F 100%);
-      box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
-      border: 1px solid rgba(138, 104, 24, 0.6);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+      border: 1px solid rgba(138, 104, 24, 0.5);
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
     .butterfly-wing-left {
       left: 0;
       border-radius: 75% 25% 65% 35% / 60% 40% 60% 40%;
       transform-origin: 100% 50%;
-      animation: flapLeft 0.22s ease-in-out infinite alternate;
+      animation: flapLeft 0.95s ease-in-out infinite alternate;
     }
     .butterfly-wing-right {
       right: 0;
       border-radius: 25% 75% 35% 65% / 40% 60% 40% 60%;
       transform-origin: 0% 50%;
-      animation: flapRight 0.22s ease-in-out infinite alternate;
+      animation: flapRight 0.95s ease-in-out infinite alternate;
     }
     .butterfly-body {
       position: absolute;
@@ -314,18 +339,18 @@
       transform: rotate(25deg);
     }
     @keyframes flapLeft {
-      0% { transform: rotateY(0deg) rotateZ(5deg); }
-      100% { transform: rotateY(70deg) rotateZ(-10deg); }
+      0% { transform: rotateY(0deg) rotateZ(3deg); }
+      100% { transform: rotateY(50deg) rotateZ(-6deg); }
     }
     @keyframes flapRight {
-      0% { transform: rotateY(0deg) rotateZ(-5deg); }
-      100% { transform: rotateY(-70deg) rotateZ(10deg); }
+      0% { transform: rotateY(0deg) rotateZ(-3deg); }
+      100% { transform: rotateY(-50deg) rotateZ(6deg); }
     }
     @keyframes butterflyFlight {
-      0% { transform: translate(0px, 0px) rotate(6deg) scale(0.95); }
-      33% { transform: translate(14px, -14px) rotate(-8deg) scale(1.05); }
-      66% { transform: translate(-10px, -22px) rotate(10deg) scale(1); }
-      100% { transform: translate(6px, -8px) rotate(-4deg) scale(0.98); }
+      0% { transform: translate(0px, 0px) rotate(4deg) scale(0.96); }
+      33% { transform: translate(8px, -8px) rotate(-4deg) scale(1.02); }
+      66% { transform: translate(-6px, -14px) rotate(6deg) scale(0.98); }
+      100% { transform: translate(4px, -5px) rotate(-2deg) scale(1); }
     }
     @keyframes envelopeOpen {
       0% { transform: scale(1) translateY(0); opacity: 1; filter: brightness(1); }
@@ -453,19 +478,19 @@
     /* Floating Hearts emitted between lovers */
     @keyframes loveDrift {
       0% {
-        transform: translate(0, 0) scale(0.4) rotate(0deg);
+        transform: translate(0, 0) scale(0.6) rotate(0deg);
         opacity: 0;
       }
-      20% {
-        opacity: 1;
-        transform: translate(calc(var(--tw-dx, 0px) * 0.3), -30px) scale(1) rotate(10deg);
+      25% {
+        opacity: 0.95;
+        transform: translate(calc(var(--tw-dx, 0px) * 0.25), -25px) scale(1) rotate(6deg);
       }
-      80% {
+      75% {
         opacity: 0.9;
-        transform: translate(calc(var(--tw-dx, 0px) * 0.8), -90px) scale(1.2) rotate(-15deg);
+        transform: translate(calc(var(--tw-dx, 0px) * 0.75), -70px) scale(1.1) rotate(-8deg);
       }
       100% {
-        transform: translate(var(--tw-dx, 0px), -150px) scale(0.8) rotate(25deg);
+        transform: translate(var(--tw-dx, 0px), -120px) scale(0.7) rotate(15deg);
         opacity: 0;
       }
     }
@@ -473,8 +498,9 @@
       position: fixed;
       pointer-events: none;
       z-index: 9999;
-      animation: loveDrift 1.8s cubic-bezier(0.2, 0.7, 0.4, 1) forwards;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.35));
+      animation: loveDrift 2.8s cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
+      will-change: transform, opacity;
     }
 
     /* Romantic Love Banner Popup */
@@ -499,12 +525,12 @@
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.2)_0%,transparent_75%)] pointer-events-none"></div>
 
     <!-- Envelope Card -->
-    <div id="envelope-card" class="relative max-w-lg w-full bg-gradient-to-b from-[#FFFDF9] via-[#FAF6F0] to-[#F3ECE0] rounded-3xl p-6 sm:p-10 border-2 border-gold-400 shadow-2xl text-center wine-glow overflow-hidden transform transition-all duration-700">
+    <div id="envelope-card" class="relative max-w-lg w-full max-h-[92vh] overflow-y-auto bg-gradient-to-b from-[#FFFDF9] via-[#FAF6F0] to-[#F3ECE0] rounded-3xl p-5 sm:p-10 border-2 border-gold-400 shadow-2xl text-center wine-glow transform transition-all duration-700">
       
       <!-- Top Ornate Ribbon & Wax Seal -->
-      <div class="relative mb-5">
-        <!-- Floating 3D Butterfly on Welcome Card -->
-        <div class="butterfly-3d-wrapper -top-4 -right-2">
+      <div class="relative mb-4 sm:mb-5">
+        <!-- Floating 3D Butterfly on Welcome Card (Desktop) -->
+        <div class="butterfly-3d-wrapper -top-4 -right-2 hidden sm:block">
           <div class="butterfly-3d">
             <div class="butterfly-wing butterfly-wing-left"></div>
             <div class="butterfly-body"></div>
@@ -590,8 +616,8 @@
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
 
-      <!-- 3D Fluttering Butterfly on Modal -->
-      <div class="butterfly-3d-wrapper -top-4 -left-2">
+      <!-- 3D Fluttering Butterfly on Modal (Desktop) -->
+      <div class="butterfly-3d-wrapper -top-4 -left-2 hidden sm:block">
         <div class="butterfly-3d butterfly-rose">
           <div class="butterfly-wing butterfly-wing-left"></div>
           <div class="butterfly-body"></div>
@@ -631,7 +657,7 @@
   </audio>
 
   <!-- Phase 2.1: Floating Controls Header -->
-  <header class="fixed top-4 right-4 z-50 flex items-center gap-2 sm:gap-3 bg-white/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-gold-400/50 shadow-lg transition-all duration-300 hover:bg-white">
+  <header class="fixed top-3 right-3 sm:top-4 sm:right-4 z-50 flex items-center gap-1.5 sm:gap-3 bg-white/90 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gold-400/50 shadow-lg transition-all duration-300 max-w-[calc(100vw-1.5rem)] hover:bg-white">
     <!-- Personalized VIP Guest Tag Button -->
     <button id="header-guest-chip" onclick="showVipModalAgain()" class="hidden items-center gap-1.5 px-3 py-1.5 bg-gold-400/20 hover:bg-gold-400/30 text-wine-900 rounded-full border border-gold-400/60 text-xs font-semibold active:scale-95 transition-all shadow-sm" title="លិខិតអញ្ជើញរបស់អ្នក / Your Invitation">
       <i data-lucide="award" class="w-3.5 h-3.5 text-gold-700"></i>
@@ -711,8 +737,8 @@
       <h1 class="relative z-10 text-4xl sm:text-6xl md:text-7xl font-script tracking-wide py-2">
         <span class="gold-gradient-text drop-shadow-lg">Sakkada & Sovannary</span>
       </h1>
-      <!-- 3D Fluttering Header Butterfly -->
-      <div class="butterfly-3d-wrapper -top-3 -right-4 sm:-right-8">
+      <!-- 3D Fluttering Header Butterfly (Desktop) -->
+      <div class="butterfly-3d-wrapper -top-3 -right-4 sm:-right-8 hidden sm:block">
         <div class="butterfly-3d butterfly-small">
           <div class="butterfly-wing butterfly-wing-left"></div>
           <div class="butterfly-body"></div>
@@ -781,8 +807,8 @@
 
       <!-- Bride Card -->
       <div id="bride-love-card" class="bride-love-card group flex flex-col items-center relative transition-all duration-700 active:scale-95">
-        <!-- 3D Fluttering Rose Butterfly on Bride Frame -->
-        <div class="butterfly-3d-wrapper -top-3 -left-2">
+        <!-- 3D Fluttering Rose Butterfly on Bride Frame (Desktop) -->
+        <div class="butterfly-3d-wrapper -top-3 -left-2 hidden sm:block">
           <div class="butterfly-3d butterfly-rose">
             <div class="butterfly-wing butterfly-wing-left"></div>
             <div class="butterfly-body"></div>
@@ -1135,7 +1161,7 @@
     </div>
 
     <!-- Responsive Photo Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
       <!-- Photo 1 -->
       <div class="gallery-card group relative rounded-2xl overflow-hidden border-2 border-gold-300/80 shadow-lg cursor-pointer aspect-[3/4] bg-stone-900 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-gold-400" data-category="angkor" onclick="openLightbox(0)">
         <img src="./assets/images/prewedding/photo-1.jpg" alt="Angkor Wat Prewedding" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
@@ -1723,27 +1749,28 @@
     }
 
     function spawnLoveBurst(originX, originY) {
-      const symbols = ['💖', '💕', '💞', '💍', '✨', '💐', '💘', '🌸', '❤️'];
-      const total = 26;
+      const symbols = ['💖', '💕', '💍', '✨', '🌸', '❤️'];
+      const isMobile = window.innerWidth < 768;
+      const total = isMobile ? 8 : 12; // much fewer particles for clean view
       for (let i = 0; i < total; i++) {
         const p = document.createElement('div');
-        p.className = 'love-particle text-2xl sm:text-3xl select-none';
+        p.className = 'love-particle text-xl sm:text-2xl select-none';
         p.innerText = symbols[Math.floor(Math.random() * symbols.length)];
         
-        // Spread in random angles with varying travel distances
-        const angle = (Math.PI * 2 * i) / total + (Math.random() - 0.5) * 0.4;
-        const dist = Math.random() * 140 + 60;
+        // Spread in gentle angles with soft distances
+        const angle = (Math.PI * 2 * i) / total + (Math.random() - 0.5) * 0.3;
+        const dist = Math.random() * 80 + 40;
         const dx = Math.cos(angle) * dist;
-        const dy = Math.sin(angle) * dist * 0.7;
+        const dy = Math.sin(angle) * dist * 0.6;
 
         p.style.setProperty('--tw-dx', `${dx}px`);
-        p.style.left = `${originX + (Math.random() - 0.5) * 30}px`;
-        p.style.top = `${originY + dy * 0.3}px`;
-        p.style.animationDelay = `${Math.random() * 0.15}s`;
-        p.style.animationDuration = `${1.4 + Math.random() * 0.6}s`;
+        p.style.left = `${originX + (Math.random() - 0.5) * 20}px`;
+        p.style.top = `${originY + dy * 0.2}px`;
+        p.style.animationDelay = `${Math.random() * 0.2}s`;
+        p.style.animationDuration = `${2.6 + Math.random() * 0.6}s`; // slow, gentle drifting
 
         document.body.appendChild(p);
-        setTimeout(() => p.remove(), 2100);
+        setTimeout(() => p.remove(), 3400);
       }
     }
 
@@ -1754,10 +1781,10 @@
         if (!container) return;
         const rect = container.getBoundingClientRect();
         // Point along the line between groom & bride
-        const startX = rect.left + rect.width * (0.35 + Math.random() * 0.3);
-        const startY = rect.top + rect.height * 0.45 + (Math.random() - 0.5) * 30;
+        const startX = rect.left + rect.width * (0.4 + Math.random() * 0.2);
+        const startY = rect.top + rect.height * 0.45 + (Math.random() - 0.5) * 20;
         createSingleLoveParticle(startX, startY);
-      }, 240);
+      }, 700); // slow gentle stream
     }
 
     function stopHoverLoveStream() {
@@ -1768,16 +1795,16 @@
     }
 
     function createSingleLoveParticle(x, y) {
-      const symbols = ['💖', '💕', '✨', '🌸', '💍'];
+      const symbols = ['💖', '💕', '✨', '🌸'];
       const p = document.createElement('div');
-      p.className = 'love-particle text-lg select-none';
+      p.className = 'love-particle text-base select-none';
       p.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-      p.style.setProperty('--tw-dx', `${(Math.random() - 0.5) * 70}px`);
+      p.style.setProperty('--tw-dx', `${(Math.random() - 0.5) * 50}px`);
       p.style.left = `${x}px`;
       p.style.top = `${y}px`;
-      p.style.animationDuration = '1.3s';
+      p.style.animationDuration = '2.5s';
       document.body.appendChild(p);
-      setTimeout(() => p.remove(), 1400);
+      setTimeout(() => p.remove(), 2600);
     }
 
     // --- 1.1 VIP Guest Personalization & Welcome Envelope Gate ---
@@ -2585,15 +2612,15 @@
           this.x = x !== undefined ? x : Math.random() * width;
           this.y = y !== undefined ? y : Math.random() * height;
           this.size = Math.random() * 5 + 13; // 13-18px radius
-          this.vx = (Math.random() - 0.5) * 1.8;
-          this.vy = (Math.random() - 0.5) * 1.4 - 0.4; // upward drift tendency
+          this.vx = (Math.random() - 0.5) * 0.8;
+          this.vy = (Math.random() - 0.5) * 0.6 - 0.2; // gentle upward drift
           this.targetX = Math.random() * width;
           this.targetY = Math.random() * height;
           this.heading = Math.atan2(this.vy, this.vx);
           this.flap = Math.random() * Math.PI * 2;
-          this.flapSpeed = 0.28 + Math.random() * 0.16;
+          this.flapSpeed = 0.05 + Math.random() * 0.03; // slow, majestic wing strokes
           this.wobble = Math.random() * Math.PI * 2;
-          this.wobbleSpeed = 0.035;
+          this.wobbleSpeed = 0.015;
 
           const palettes = [
             {
@@ -2625,7 +2652,7 @@
           this.wobble += this.wobbleSpeed;
 
           // Target retargeting
-          if (Math.hypot(this.targetX - this.x, this.targetY - this.y) < 70 || Math.random() < 0.012) {
+          if (Math.hypot(this.targetX - this.x, this.targetY - this.y) < 70 || Math.random() < 0.008) {
             this.targetX = Math.random() * width;
             this.targetY = Math.random() * height;
           }
@@ -2634,26 +2661,26 @@
           const dx = this.targetX - this.x;
           const dy = this.targetY - this.y;
           const dist = Math.hypot(dx, dy) || 1;
-          this.vx += (dx / dist) * 0.045;
-          this.vy += (dy / dist) * 0.045;
+          this.vx += (dx / dist) * 0.012;
+          this.vy += (dy / dist) * 0.012;
 
-          // Gentle flutter lift
-          this.vy += Math.sin(this.wobble) * 0.14;
-          this.vx += Math.cos(this.wobble) * 0.11;
+          // Gentle flutter lift - slow and calm
+          this.vy += Math.sin(this.wobble) * 0.04;
+          this.vx += Math.cos(this.wobble) * 0.03;
 
           // Evasion if mouse cursor gets close
           if (mouseX !== undefined && mouseY !== undefined) {
             const mdx = this.x - mouseX;
             const mdy = this.y - mouseY;
             const mdist = Math.hypot(mdx, mdy);
-            if (mdist < 130 && mdist > 0) {
-              this.vx += (mdx / mdist) * 0.55;
-              this.vy += (mdy / mdist) * 0.55;
+            if (mdist < 110 && mdist > 0) {
+              this.vx += (mdx / mdist) * 0.35;
+              this.vy += (mdy / mdist) * 0.35;
             }
           }
 
-          // Dampen speed
-          const maxSpeed = 2.4;
+          // Dampen speed - slow peaceful flight
+          const maxSpeed = 0.75;
           const speed = Math.hypot(this.vx, this.vy);
           if (speed > maxSpeed) {
             this.vx = (this.vx / speed) * maxSpeed;
@@ -2668,7 +2695,7 @@
           let diff = targetHeading - this.heading;
           while (diff < -Math.PI) diff += Math.PI * 2;
           while (diff > Math.PI) diff -= Math.PI * 2;
-          this.heading += diff * 0.1;
+          this.heading += diff * 0.08;
 
           // Wrap around edges
           const pad = 40;
@@ -2677,9 +2704,9 @@
           if (this.y < -pad) this.y = height + pad;
           if (this.y > height + pad) this.y = -pad;
 
-          // Emit fairy dust trail
+          // Emit soft fairy dust trail occasionally
           this.sparkleTimer++;
-          if (this.sparkleTimer % 4 === 0) {
+          if (this.sparkleTimer % 28 === 0) {
             sparkles.push(new Sparkle(this.x, this.y, this.palette.sparkle));
           }
         }
@@ -2795,20 +2822,20 @@
         reset() {
           this.x = Math.random() * width;
           this.y = Math.random() * -height;
-          this.size = Math.random() * 8 + 8;
-          this.speedY = Math.random() * 1.2 + 0.6;
-          this.speedX = Math.random() * 1 - 0.5;
+          this.size = Math.random() * 6 + 7;
+          this.speedY = Math.random() * 0.35 + 0.2; // slow, gentle drifting
+          this.speedX = (Math.random() - 0.5) * 0.25;
           this.rotation = Math.random() * Math.PI * 2;
-          this.rotationSpeed = (Math.random() - 0.5) * 0.02;
-          this.isGold = Math.random() > 0.65; // 35% gold sparkles, 65% lotus pink
-          this.opacity = Math.random() * 0.6 + 0.3;
+          this.rotationSpeed = (Math.random() - 0.5) * 0.005; // calm rotation
+          this.isGold = Math.random() > 0.7;
+          this.opacity = Math.random() * 0.4 + 0.25;
           this.wobble = Math.random() * Math.PI;
-          this.wobbleSpeed = Math.random() * 0.03 + 0.01;
+          this.wobbleSpeed = Math.random() * 0.01 + 0.005;
         }
         update() {
           this.wobble += this.wobbleSpeed;
           this.y += this.speedY;
-          this.x += Math.sin(this.wobble) * 0.8 + this.speedX;
+          this.x += Math.sin(this.wobble) * 0.4 + this.speedX;
           this.rotation += this.rotationSpeed;
 
           if (this.y > height + 20) {
@@ -2851,17 +2878,21 @@
         }
       }
 
-      // Initialize persistent particles
-      const petals = Array.from({ length: 22 }, () => new Petal());
-      const butterflies = Array.from({ length: 7 }, () => new Butterfly());
+      // Initialize persistent particles - minimal & slow for peaceful mobile experience
+      const isMobileDevice = window.innerWidth < 768 || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+      const petalCount = isMobileDevice ? 6 : 9;
+      const butterflyCount = isMobileDevice ? 1 : 2;
+      const petals = Array.from({ length: petalCount }, () => new Petal());
+      const butterflies = Array.from({ length: butterflyCount }, () => new Butterfly());
       const sparkles = [];
 
       // Global Burst function
       spawnButterflyBurst = function(x, y) {
         const originX = x !== undefined ? x : width / 2;
         const originY = y !== undefined ? y : height * 0.6;
-        for (let i = 0; i < 7; i++) {
-          butterflies.push(new Butterfly(originX + (Math.random() - 0.5) * 80, originY + (Math.random() - 0.5) * 60, true));
+        const burstCount = isMobileDevice ? 2 : 4;
+        for (let i = 0; i < burstCount; i++) {
+          butterflies.push(new Butterfly(originX + (Math.random() - 0.5) * 60, originY + (Math.random() - 0.5) * 40, true));
         }
         showToast(currentLang === 'km' ? 'មេអំបៅមង្គលហោះហើរយ៉ាងស្រស់ស្អាត! 🦋✨' : 'Butterflies released with love! 🦋✨');
       };
